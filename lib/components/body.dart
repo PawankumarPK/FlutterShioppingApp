@@ -5,13 +5,13 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start ,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Text(
             "Women",
-            style: Theme
-                .of(context)
+            style: Theme.of(context)
                 .textTheme
                 .headline5
                 .copyWith(fontWeight: FontWeight.bold),
@@ -41,16 +41,28 @@ class _CategoriesState extends State<Categories> {
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
-          itemBuilder: (context, index) => buildCategory(index)
-      ),
+          itemBuilder: (context, index) => buildCategory(index)),
     );
   }
 
   Widget buildCategory(int index) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      child: Text(
-          categories[index]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            categories[index],
+            style: TextStyle(fontWeight: FontWeight.bold, color: kTextColor),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: kDefaultPadding / 4),
+            height: 2,
+            width: 30,
+            color: Colors.black,
+          )
+        ],
+      ),
     );
   }
 }
