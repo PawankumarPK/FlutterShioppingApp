@@ -51,26 +51,28 @@ class ItemCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          padding: EdgeInsets.all(kDefaultPadding),
-          //for demo we used fixed , but now we dont need them
-          // height: 180,
-          // width: 160,
-          decoration: BoxDecoration(
-              color: product.color,
-              borderRadius: BorderRadius.circular(16)),
-          child: Image.asset(products[0].image),
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.all(kDefaultPadding),
+            //for demo we used fixed , but now we dont need them
+            // height: 180,
+            // width: 160,
+            decoration: BoxDecoration(
+                color: product.color,
+                borderRadius: BorderRadius.circular(16)),
+            child: Image.asset(product.image),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
           child: Text(
             //product is out of demo list
-            products[0].title,
+            product.title,
             style: TextStyle(color: kTextLightColor),
           ),
         ),
         Text(
-          "\$1234",
+          "\$${product.price}",
           style: TextStyle(fontWeight: FontWeight.bold),
         )
       ],
