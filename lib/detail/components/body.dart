@@ -5,6 +5,7 @@ import 'package:shopping_app/constants.dart';
 import 'package:shopping_app/detail/components/product_title_with_image.dart';
 import 'package:shopping_app/models/Product.dart';
 
+import 'add_to_cart.dart';
 import 'cart_counter.dart';
 import 'color_and_size.dart';
 import 'counter_with_fav_button.dart';
@@ -43,7 +44,9 @@ class Body extends StatelessWidget {
                       Description(
                         product: product,
                       ),
-                      CounterWithFavButton()
+                      CounterWithFavButton(),
+                      AddToCart(product:product)
+
                     ],
                   ),
                 ),
@@ -56,7 +59,6 @@ class Body extends StatelessWidget {
     );
   }
 }
-
 
 
 
